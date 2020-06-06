@@ -126,7 +126,7 @@ begin
     if ListView1.ItemIndex > -1 then
      begin
       if (_UlembreteDAO.Deletar(Tlembrete(ListView1.ItemFocused.Data))) then
-       CarregarColecao;
+        CarregarColecao;
      end;
    end;
 end;

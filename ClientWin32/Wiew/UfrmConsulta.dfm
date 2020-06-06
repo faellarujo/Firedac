@@ -28,7 +28,6 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 797
   end
   object Panel2: TPanel
     Left = 0
@@ -37,7 +36,6 @@ object Form1: TForm1
     Height = 41
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 797
     object Label1: TLabel
       Left = 8
       Top = 16
@@ -145,8 +143,6 @@ object Form1: TForm1
       end>
     TabOrder = 3
     ViewStyle = vsReport
-    ExplicitWidth = 797
-    ExplicitHeight = 305
   end
   object Panel3: TPanel
     Left = 0
@@ -155,8 +151,6 @@ object Form1: TForm1
     Height = 41
     Align = alBottom
     TabOrder = 4
-    ExplicitTop = 387
-    ExplicitWidth = 797
     object SpdBtnNovo: TSpeedButton
       Left = -1
       Top = -1

@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Cadastro de Lembretes'
-  ClientHeight = 428
-  ClientWidth = 797
+  ClientHeight = 470
+  ClientWidth = 572
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object Form1: TForm1
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 797
+    Width = 572
     Height = 41
     Align = alTop
     Caption = 'Lista de Lembretes'
@@ -28,14 +28,16 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 797
   end
   object Panel2: TPanel
     Left = 0
     Top = 41
-    Width = 797
+    Width = 572
     Height = 41
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 797
     object Label1: TLabel
       Left = 8
       Top = 16
@@ -126,8 +128,8 @@ object Form1: TForm1
   object ListView1: TListView
     Left = 0
     Top = 82
-    Width = 797
-    Height = 305
+    Width = 572
+    Height = 347
     Align = alClient
     Columns = <
       item
@@ -143,15 +145,18 @@ object Form1: TForm1
       end>
     TabOrder = 3
     ViewStyle = vsReport
-    ExplicitTop = 79
+    ExplicitWidth = 797
+    ExplicitHeight = 305
   end
   object Panel3: TPanel
     Left = 0
-    Top = 387
-    Width = 797
+    Top = 429
+    Width = 572
     Height = 41
     Align = alBottom
     TabOrder = 4
+    ExplicitTop = 387
+    ExplicitWidth = 797
     object SpdBtnNovo: TSpeedButton
       Left = -1
       Top = -1
@@ -222,6 +227,7 @@ object Form1: TForm1
         FFFF00FFFF00FF2D93BD267FA1267FA1267FA1267FA1267FA12D93BDFF00FFFF
         00FFFF00FFFF00FF006000006000006000FF00FFFF00FFFF00FF}
       ParentFont = False
+      OnClick = SpdBtnNovoClick
     end
     object SpdBtnEditar: TSpeedButton
       Left = 81
@@ -365,6 +371,7 @@ object Form1: TForm1
         FFFF00FFFF00FF2D93BD267FA1267FA1267FA1267FA1267FA12D93BDFF00FFFF
         00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
       ParentFont = False
+      OnClick = SpdBtnSalvarClick
     end
   end
   object ImageList1: TImageList

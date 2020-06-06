@@ -25,6 +25,7 @@ type
     procedure SpdBtnBuscarClick(Sender: TObject);
     procedure SpdBtnEditarClick(Sender: TObject);
     procedure SpdBtnNovoClick(Sender: TObject);
+    procedure SpdBtnSalvarClick(Sender: TObject);
   private
     { Pri vate declarations }
     _UlembreteDAO : TULembreteDAO;
@@ -53,7 +54,7 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
- dm            := TDM.Create(self);
+  dm           := TDM.Create(self);
  _UlembreteDAO := TULembreteDAO.Create;
 end;
 
@@ -118,5 +119,17 @@ begin
 end;
 
 end;
+procedure TForm1.SpdBtnSalvarClick(Sender: TObject);
+begin
+ if MessageDlg('Dejesa excluir o registro selecionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes then
+   begin
+    if ListView1.ItemIndex > -1 then
+     begin
+      if (_UlembreteDAO.Deletar(Tlembrete(ListView1.ItemFocused.Data))) then
+       CarregarColecao;
+     end;
+   end;
+end;
+
 end.
 
