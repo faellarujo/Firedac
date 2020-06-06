@@ -1,0 +1,29 @@
+unit ULembrete;
+
+interface
+
+uses
+  System.SysUtils;
+
+
+Tlembrete = class
+
+private
+  { private declarations }
+protected
+  { protected declarations }
+public
+  { public declarations }
+ constructor
+published
+  { published declarations }
+end;
+
+
+
+
+
+
+implementation
+
+end.

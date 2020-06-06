@@ -1,0 +1,37 @@
+unit UBaseDAO;
+
+interface
+
+uses
+
+ Firedac.Comp.Client, System.SysUtils, Udm, Data.DB, Vcl.Dialogs, System.Classes;
+
+ type
+
+ TBaseDAO = class(Tobject)
+
+ private
+  { private declarations }
+protected
+  _FQry : TFDQuery;
+public
+  Constructor create;
+  Destructor Destroy; Override;
+
+  FUNCTION RetornaDataSete (pSQL : String ) : TFDQuery;
+  FUNCTION RetornaDataSete (pSQL : String ) : TFDQuery;
+
+published
+  { published declarations }
+end;
+
+
+implementation
+
+Constructor TBaseDAO.create;
+begin
+ Inherited Create;
+ _FQry := TFDQuery.Create(nil);
+
+end;
+end.

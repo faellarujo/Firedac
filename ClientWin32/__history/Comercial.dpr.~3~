@@ -1,0 +1,18 @@
+program Comercial;
+
+uses
+  Vcl.Forms,
+  UfrmPrincipal in 'Wiew\UfrmPrincipal.pas' {FormPrincipal},
+  Udm in 'Modules\Udm.pas' {DataModule1: TDataModule},
+  IDETheme.ActnCtrls in 'IDETheme.ActnCtrls.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Sistema Comercial';
+  Application.CreateForm(TFormPrincipal, FormPrincipal);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.

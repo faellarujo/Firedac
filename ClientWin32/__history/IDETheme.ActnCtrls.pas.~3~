@@ -1,0 +1,14 @@
+unit IDETheme.ActnCtrls;
+
+interface
+
+uses
+
+Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.Actions, Vcl.ActnList,
+  System.ImageList, Vcl.ImgList,Vcl.ActnMan, Vcl.ToolWin,
+  Vcl.ActnCtrls, Vcl.ActnMenus, XPStyleActnCtrls, Vcl.Themes, Vcl.Styles;
+
+implementation
+
+end.

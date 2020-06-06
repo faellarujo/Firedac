@@ -1,0 +1,38 @@
+unit ULembrete;
+
+interface
+
+uses
+  System.SysUtils;
+
+
+ Type
+
+ Tlembrete = class
+
+private
+  { private declarations }
+protected
+  { protected declarations }
+public
+
+
+ constructor create;
+ property Idlembrete: Integer    read FIdlembrete write SetIdlembrete;
+ property Titulo    : String     read FTitulo     write SetTitulo;
+ property Descricao : String     read FDescricao  write SetDescricao;
+ property DataHora  : TDateTime  read FDataHora   write SetDataHora;
+
+
+published
+  { published declarations }
+end;
+
+
+
+
+
+
+implementation
+
+end.

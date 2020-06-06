@@ -1,0 +1,89 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 652
+  Width = 915
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=D:\Delphi\AppRadCompleta\DB\DBVENDAS.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Protocol=localhost'
+      'DriverID=FB')
+    FormatOptions.AssignedValues = [fvADOCompatibility]
+    FormatOptions.ADOCompatibility = True
+    Connected = True
+    LoginPrompt = False
+    Left = 56
+    Top = 32
+  end
+  object cdsCliente: TClientDataSet
+    Active = True
+    Aggregates = <>
+    PacketRecords = 0
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    Left = 487
+    Top = 119
+  end
+  object FDQueryCliente: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from clientes')
+    Left = 304
+    Top = 120
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = FDQueryCliente
+    Options = [poPropogateChanges, poAllowCommandText, poUseQuoteChar]
+    Left = 398
+    Top = 120
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    Left = 392
+    Top = 32
+  end
+  object FDQueryProduto: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from produtos')
+    Left = 304
+    Top = 184
+  end
+  object DataSetProvider2: TDataSetProvider
+    DataSet = FDQueryProduto
+    Options = [poPropogateChanges, poAllowCommandText, poUseQuoteChar]
+    Left = 398
+    Top = 184
+  end
+  object cdsProduto: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider2'
+    Left = 494
+    Top = 183
+  end
+  object FDQueryUsuario: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from produtos')
+    Left = 303
+    Top = 244
+  end
+  object DataSetProvider3: TDataSetProvider
+    DataSet = FDQueryUsuario
+    Options = [poPropogateChanges, poAllowCommandText, poUseQuoteChar]
+    Left = 397
+    Top = 244
+  end
+  object cdsUsuario: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider3'
+    Left = 493
+    Top = 243
+  end
+end

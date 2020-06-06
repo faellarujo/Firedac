@@ -1,0 +1,300 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 652
+  Width = 915
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=D:\Delphi\AppRadCompleta\DB\DBVENDAS.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Protocol=localhost'
+      'DriverID=FB')
+    FormatOptions.AssignedValues = [fvADOCompatibility]
+    FormatOptions.ADOCompatibility = True
+    Connected = True
+    LoginPrompt = False
+    Left = 56
+    Top = 32
+  end
+  object cdsCliente: TClientDataSet
+    Active = True
+    Aggregates = <>
+    PacketRecords = 0
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    Left = 487
+    Top = 119
+    object cdsClienteCLIENTEID: TIntegerField
+      FieldName = 'CLIENTEID'
+      Origin = 'CLIENTEID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsClienteNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 75
+    end
+    object cdsClienteENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Size = 75
+    end
+    object cdsClienteBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Origin = 'BAIRRO'
+    end
+    object cdsClienteCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Origin = 'CIDADE'
+    end
+    object cdsClienteCEP: TStringField
+      FieldName = 'CEP'
+      Origin = 'CEP'
+      FixedChar = True
+      Size = 9
+    end
+    object cdsClienteUF: TStringField
+      FieldName = 'UF'
+      Origin = 'UF'
+      FixedChar = True
+      Size = 2
+    end
+    object cdsClienteEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Size = 75
+    end
+    object cdsClienteTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Origin = 'TELEFONE'
+    end
+  end
+  object FDQueryCliente: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from clientes')
+    Left = 304
+    Top = 120
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = FDQueryCliente
+    Options = [poPropogateChanges, poAllowCommandText, poUseQuoteChar]
+    Left = 398
+    Top = 120
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    Left = 392
+    Top = 32
+  end
+  object FDQueryProduto: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from produtos')
+    Left = 304
+    Top = 184
+  end
+  object DataSetProvider2: TDataSetProvider
+    DataSet = FDQueryProduto
+    Options = [poPropogateChanges, poAllowCommandText, poUseQuoteChar]
+    Left = 398
+    Top = 184
+  end
+  object cdsProduto: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider2'
+    Left = 494
+    Top = 183
+    object cdsProdutoPRODUTOID: TIntegerField
+      FieldName = 'PRODUTOID'
+      Origin = 'PRODUTOID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsProdutoDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Size = 75
+    end
+    object cdsProdutoESTOQUE: TCurrencyField
+      FieldName = 'ESTOQUE'
+      Origin = 'ESTOQUE'
+    end
+    object cdsProdutoPRECO: TCurrencyField
+      FieldName = 'PRECO'
+      Origin = 'PRECO'
+    end
+  end
+  object FDQueryUsuario: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from usuarios')
+    Left = 303
+    Top = 244
+  end
+  object DataSetProvider3: TDataSetProvider
+    DataSet = FDQueryUsuario
+    Options = [poPropogateChanges, poAllowCommandText, poUseQuoteChar]
+    Left = 397
+    Top = 244
+  end
+  object cdsUsuario: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider3'
+    Left = 493
+    Top = 243
+    object cdsUsuarioUSUARIOID: TIntegerField
+      FieldName = 'USUARIOID'
+      Required = True
+    end
+    object cdsUsuarioPERFILID: TIntegerField
+      FieldName = 'PERFILID'
+      Required = True
+    end
+    object cdsUsuarioNOME: TStringField
+      FieldName = 'NOME'
+      Size = 75
+    end
+    object cdsUsuarioEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 75
+    end
+    object cdsUsuarioLOGIN: TStringField
+      FieldName = 'LOGIN'
+      Size = 10
+    end
+    object cdsUsuarioSENHA: TStringField
+      FieldName = 'SENHA'
+      Size = 10
+    end
+    object cdsUsuarioVENDEDOR: TStringField
+      FieldName = 'VENDEDOR'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object FDQueryPerfil: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from usuarios')
+    Left = 300
+    Top = 309
+  end
+  object DataSetProvider4: TDataSetProvider
+    DataSet = FDQueryPerfil
+    Options = [poPropogateChanges, poAllowCommandText, poUseQuoteChar]
+    Left = 394
+    Top = 309
+  end
+  object cdsPerfil: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider4'
+    Left = 490
+    Top = 308
+    object cdsPerfilUSUARIOID: TIntegerField
+      FieldName = 'USUARIOID'
+      Origin = 'USUARIOID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsPerfilPERFILID: TIntegerField
+      FieldName = 'PERFILID'
+      Origin = 'PERFILID'
+      Required = True
+    end
+    object cdsPerfilNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 75
+    end
+    object cdsPerfilEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Size = 75
+    end
+    object cdsPerfilLOGIN: TStringField
+      FieldName = 'LOGIN'
+      Origin = 'LOGIN'
+      Size = 10
+    end
+    object cdsPerfilSENHA: TStringField
+      FieldName = 'SENHA'
+      Origin = 'SENHA'
+      Size = 10
+    end
+    object cdsPerfilVENDEDOR: TStringField
+      FieldName = 'VENDEDOR'
+      Origin = 'VENDEDOR'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object FDQueryVendas: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from usuarios')
+    Left = 299
+    Top = 367
+  end
+  object DataSetProvider5: TDataSetProvider
+    DataSet = FDQueryVendas
+    Options = [poPropogateChanges, poAllowCommandText, poUseQuoteChar]
+    Left = 393
+    Top = 367
+  end
+  object ClientDataSet1: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider5'
+    Left = 489
+    Top = 366
+    object ClientDataSet1USUARIOID: TIntegerField
+      FieldName = 'USUARIOID'
+      Origin = 'USUARIOID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ClientDataSet1PERFILID: TIntegerField
+      FieldName = 'PERFILID'
+      Origin = 'PERFILID'
+      Required = True
+    end
+    object ClientDataSet1NOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 75
+    end
+    object ClientDataSet1EMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Size = 75
+    end
+    object ClientDataSet1LOGIN: TStringField
+      FieldName = 'LOGIN'
+      Origin = 'LOGIN'
+      Size = 10
+    end
+    object ClientDataSet1SENHA: TStringField
+      FieldName = 'SENHA'
+      Origin = 'SENHA'
+      Size = 10
+    end
+    object ClientDataSet1VENDEDOR: TStringField
+      FieldName = 'VENDEDOR'
+      Origin = 'VENDEDOR'
+      FixedChar = True
+      Size = 1
+    end
+  end
+end

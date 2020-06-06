@@ -1,0 +1,82 @@
+unit Udm;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.Phys.FB, FireDAC.Phys.FBDef,
+  Datasnap.Provider, Datasnap.DBClient, Data.FMTBcd, Data.SqlExpr,
+  FireDAC.Phys.IBBase, UfrmMolelo, UfrmPrincipal;
+
+type
+  TDataModule1 = class(TDataModule)
+    FDConnection1: TFDConnection;
+    cdsCliente: TClientDataSet;
+    FDQueryCliente: TFDQuery;
+    DataSetProvider1: TDataSetProvider;
+    FDPhysFBDriverLink1: TFDPhysFBDriverLink;
+    FDQueryProduto: TFDQuery;
+    DataSetProvider2: TDataSetProvider;
+    cdsProduto: TClientDataSet;
+    FDQueryUsuario: TFDQuery;
+    DataSetProvider3: TDataSetProvider;
+    cdsUsuario: TClientDataSet;
+    FDQueryPerfil: TFDQuery;
+    DataSetProvider4: TDataSetProvider;
+    cdsPerfil: TClientDataSet;
+    FDQueryVendas: TFDQuery;
+    DataSetProvider5: TDataSetProvider;
+    ClientDataSet1: TClientDataSet;
+    cdsClienteCLIENTEID: TIntegerField;
+    cdsClienteNOME: TStringField;
+    cdsClienteENDERECO: TStringField;
+    cdsClienteBAIRRO: TStringField;
+    cdsClienteCIDADE: TStringField;
+    cdsClienteCEP: TStringField;
+    cdsClienteUF: TStringField;
+    cdsClienteEMAIL: TStringField;
+    cdsClienteTELEFONE: TStringField;
+    cdsProdutoPRODUTOID: TIntegerField;
+    cdsProdutoDESCRICAO: TStringField;
+    cdsProdutoESTOQUE: TCurrencyField;
+    cdsProdutoPRECO: TCurrencyField;
+    cdsUsuarioUSUARIOID: TIntegerField;
+    cdsUsuarioPERFILID: TIntegerField;
+    cdsUsuarioNOME: TStringField;
+    cdsUsuarioEMAIL: TStringField;
+    cdsUsuarioLOGIN: TStringField;
+    cdsUsuarioSENHA: TStringField;
+    cdsUsuarioVENDEDOR: TStringField;
+    cdsPerfilUSUARIOID: TIntegerField;
+    cdsPerfilPERFILID: TIntegerField;
+    cdsPerfilNOME: TStringField;
+    cdsPerfilEMAIL: TStringField;
+    cdsPerfilLOGIN: TStringField;
+    cdsPerfilSENHA: TStringField;
+    cdsPerfilVENDEDOR: TStringField;
+    ClientDataSet1USUARIOID: TIntegerField;
+    ClientDataSet1PERFILID: TIntegerField;
+    ClientDataSet1NOME: TStringField;
+    ClientDataSet1EMAIL: TStringField;
+    ClientDataSet1LOGIN: TStringField;
+    ClientDataSet1SENHA: TStringField;
+    ClientDataSet1VENDEDOR: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

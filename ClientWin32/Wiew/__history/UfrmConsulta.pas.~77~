@@ -1,0 +1,128 @@
+unit UfrmConsulta;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Vcl.StdCtrls, DateUtils,
+  System.ImageList, Vcl.ImgList, UfrmInserir, Vcl.ComCtrls, Udm, ULembreteDAO, Firedac.dapt, UBaseDAO, ULembrete, Generics.Collections;
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    EdtBuscaPorTitulo: TEdit;
+    SpdBtnBuscar: TSpeedButton;
+    ImageList1: TImageList;
+    ListView1: TListView;
+    Panel3: TPanel;
+    SpdBtnNovo: TSpeedButton;
+    SpdBtnEditar: TSpeedButton;
+    SpdBtnSalvar: TSpeedButton;
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure SpdBtnBuscarClick(Sender: TObject);
+    procedure SpdBtnEditarClick(Sender: TObject);
+    procedure SpdBtnNovoClick(Sender: TObject);
+    procedure SpdBtnDeletarClick(Sender: TObject);
+  private
+    { Pri vate declarations }
+    _UlembreteDAO : TULembreteDAO;
+    procedure PreencherListView(pListaLembrete: TList<Tlembrete>);
+    procedure CarregarColecao;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.CarregarColecao;
+begin
+  try
+    PreencherListView(_UlembreteDAO.ListarPorTitulo_Descricao(EdtBuscaPorTitulo.Text));
+  except
+    on e: exception do
+      raise Exception.Create(E.Message);
+  end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  dm           := TDM.Create(self);
+ _UlembreteDAO := TULembreteDAO.Create;
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  try
+    if Assigned(DM) then
+     FreeAndNil(DM);
+  except
+    on e: exception do
+      raise Exception.Create(E.Message);
+  end;
+end;
+procedure TForm1.PreencherListView(pListaLembrete: TList<Tlembrete>);
+var
+  I: Integer;
+  tempItem: TListItem;
+begin
+  if Assigned(pListaLembrete) then
+  begin
+    ListView1.Clear;
+    for I := 0 to pListaLembrete.Count -1 do
+    begin
+      tempItem := ListView1.Items.Add;
+      tempItem.Caption := IntToStr(TLembrete(pListaLembrete[I]).IDLembrete);
+      tempItem.SubItems.Add(TLembrete(pListaLembrete[I]).Titulo);
+      tempItem.SubItems.Add(FormatDateTime('dd/mm/yyyy hh:mm', TLembrete(pListaLembrete[I]).DataHora));
+      tempItem.Data := TLembrete(pListaLembrete[I]);
+    end;
+  end
+  else
+    ShowMessage('Nenhum lembrete encontrado.');
+end;
+
+procedure TForm1.SpdBtnBuscarClick(Sender: TObject);
+begin
+ CarregarColecao;
+end;
+
+procedure TForm1.SpdBtnEditarClick(Sender: TObject);
+
+begin
+ try
+  frmInserir := TfrmInserir.Create(self);
+  frmInserir.ShowModal;
+  CarregarColecao;
+ finally
+  FreeAndNil(frmInserir);
+ end;
+
+
+end;
+
+procedure TForm1.SpdBtnNovoClick(Sender: TObject);
+begin
+ try
+  frmInserir := TfrmInserir.Create(self);
+  frmInserir.ShowModal;
+  CarregarColecao;
+ finally
+  FreeAndNil(frmInserir);
+end;
+
+end;
+procedure TForm1.SpdBtnSalvarClick(Sender: TObject);
+begin
+
+end;
+
+end.
+

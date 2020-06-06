@@ -1,0 +1,22 @@
+program FireDac;
+
+uses
+  Vcl.Forms,
+  UfrmConsulta in 'Wiew\UfrmConsulta.pas' {Form1},
+  ULembrete in '..\Model\ULembrete.pas',
+  UfrmEditar in 'Wiew\UfrmEditar.pas' {EditarLembrete},
+  UfrmInserir in 'Wiew\UfrmInserir.pas' {Form2},
+  UBaseDAO in '..\DAO\UBaseDAO.pas',
+  Udm in 'Udm.pas' {DM: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TEditarLembrete, EditarLembrete);
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TDM, DM);
+  Application.Run;
+end.
